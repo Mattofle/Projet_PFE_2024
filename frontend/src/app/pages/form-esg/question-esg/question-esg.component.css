@@ -1,0 +1,173 @@
+/* Container for the question and answers */
+.question-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 80%;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling the question */
+.question-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #b5cdbf;
+}
+
+/* Container for open-answer textarea */
+.open-answer {
+  margin-top: 20px;
+}
+
+.open-answer-textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Section */
+.comment-section {
+  margin-top: 10px;
+}
+
+.comment-section button {
+  margin: 0 5px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-section button:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section button:active {
+  background-color: #d0d0d0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Comment containers */
+.add-comment-container {
+  margin-top: 10px;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.existing-comment-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.existing-comment {
+  font-size: 14px;
+  color: #333;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.edit-comment-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Styling for the answers table */
+.answers-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Espacement entre les lignes */
+}
+
+/* Styling for each table row */
+.answers-table tr {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.answers-table td:hover {
+  background-color: #92cab1;
+}
+
+/* Selected row styling */
+.answers-table td.selected {
+  background-color: #92cab1;
+  animation: pulse 300ms 1;
+}
+
+/* Styling for the answer text cell */
+.answers-table td.answer-text {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* Styling for the button cell */
+.answers-table td.answer-button-cell {
+  padding: 10px;
+  min-width: 100px;
+  background-color: white;
+  width: 3%;
+}
+
+/* Button styling */
+.answer-button {
+  padding: 6px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  width: fit-content - 100px;
+}
+
+/* Hidden checkbox and radio styling */
+.answer-checkbox,
+.answer-radio {
+  display: none;
+}
+
+/* Input container styling */
+.input-container {
+  width: 60%;
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

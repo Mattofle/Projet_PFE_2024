@@ -1,0 +1,214 @@
+<div class="box-1">
+  <h1>Gestion des comptes</h1>
+</div>
+<div class="box-2">
+  <div class="container mt-10 ">
+    <div class="row">
+      <div class="col-sm-6 liste">
+        <div class="card shadow mb-4">
+          <div class="card-body text-center">
+            <img src="../../../assets/profil.png" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{user.login}}</h5>
+            <p class="text-muted mb-1">Admin</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn create" (click)="togglePasswordForm()">Modifier mot de passse </button>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow mb-4" *ngIf="showPasswordForm">
+          <div class="card-body text-center">
+            <div class="d-flex justify-content-center ">
+              <form [formGroup]="passwordForm" (ngSubmit)="modifyPassword()" class="login-form">
+                <label for="oldPassword" class="form-label">Ancien mot de passe : </label>
+                <input type="password" id="oldPassword" formControlName="oldPassword" class="form-control">
+                <label for="newPassword" class="form-label">Nouveau mot de passe : </label>
+                <input type="password" id="newPassword" formControlName="newPassword" class="form-control"><br/>
+                <label for="confirmNewPassword" class="form-label">Confirmer mot de passe : </label>
+                <input type="password" id="confirmNewPassword" formControlName="confirmNewPassword" class="form-control"><br/>
+                <button type="submit" class="btn create">Confirmer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow p-3">
+          <h2 class="card-title text-center">Liste des Administrateurs</h2>
+          <ul class="list-group list-group-flush mt-3">
+            <li *ngFor="let admin of admins; let i = index" class="list-group-item d-flex ">
+              <span class="me-auto"><strong><i class="bi bi-person-circle"></i></strong> {{ admin.login }}</span>
+              <button class="delete-btn" (click)="deleteAdmin(admin.userId)">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </li>
+          </ul>
+          <div *ngIf="admins.length === 0" class="text-center text-muted mt-3">
+            Aucun administrateur trouvé.
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 formulaire">
+        <div class="card shadow p-4 form1">
+          <h2 class="card-title text-center">Ajouter un administrateur</h2>
+          <form (ngSubmit)="createUser()" class="mt-3">
+            <div class="mb-3">
+              <label for="login" class="form-label">Login</label>
+              <input id="login" type="text" [(ngModel)]="newAdmin.login" name="login" class="form-control" required>
+              
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input id="password" type="password" [(ngModel)]="newAdmin.password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn w-100 create">Créer</button>
+          </form>
+        </div>
+
+        <div class="card shadow p-3 form2">
+          <h2 class="card-title text-center">Ajouter une entreprise</h2>
+          <form (ngSubmit)="createCompany()" class="mt-3">
+            <div class="row">
+              <div class="col-sm-6  mb-3">
+                <label for="name" class="form-label">Nom</label>
+                <input id="name" type="text" [(ngModel)]="newCompany.name" name="name" class="form-control" required>
+              </div>
+              <div class="col-sm-6 mb-3">
+               
+                <label for="phoneNumber" class="form-label">Numéro de téléphone</label>
+                <div class="input-group phone-input">
+                  <select
+                    class="form-select country-select"
+                    [(ngModel)]="selectedCountryCode"
+                    name="countryCode">
+                    <option *ngFor="let country of countries" [value]="country.dialCode">
+                      {{ country.flag }}
+                    </option>
+                  </select>
+                  <input
+                    id="phoneNumber"
+                    type="text"
+                    [(ngModel)]="newCompany.phoneNumber"
+                    name="phoneNumber"
+                    class="form-control phone-number-input">
+                </div>
+              </div>
+            </div>
+        
+            <div class="mb-2">
+              <label for="address" class="form-label">Adresse</label>
+              <div class="row">
+                <div class="col-12 mb-2">
+                  <input id="street" type="text" [(ngModel)]="newCompany.street" name="street" class="form-control" placeholder="Rue" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <input id="city" type="text" [(ngModel)]="newCompany.city" name="city" class="form-control" placeholder="Ville" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <input id="postalCode" type="text" [(ngModel)]="newCompany.postalCode" name="postalCode" class="form-control" placeholder="Code postal" required>
+                </div>
+              </div>
+            </div>
+        
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input id="login" type="text" [(ngModel)]="newCompany.login" name="login" class="form-control" required>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input id="password" type="password" [(ngModel)]="newCompany.password" name="password" class="form-control" required>
+              </div>
+            </div>
+
+            <div  class="form-outline">
+              <label class="form-label" for="workers">Nombre d'employés</label>
+              <input type="number" id="workers" [(ngModel)]="newCompany.workers" name="workers" class="form-control" />
+            </div><br/>
+            <div class="form-check mb-3 d-flex ">
+              <label class="me-3">Ont une installation ?</label>
+              <div class="d-flex">
+                <div class="radio">
+                  <input
+                    id="hasInstalationYes"
+                    type="radio"
+                    [(ngModel)]="newCompany.hasInstalation"
+                    [value]="true"
+                    name="hasInstalation"
+                    class="form-check-input"
+                  />
+                  <label for="hasInstalationYes" class="form-check-label">Oui</label>
+                </div>
+                <div class="radio">
+                  <input
+                    id="hasInstalationNo"
+                    type="radio"
+                    [(ngModel)]="newCompany.hasInstalation"
+                    [value]="false"
+                    name="hasInstalation"
+                    class="form-check-input"
+                  />
+                  <label for="hasInstalationNo" class="form-check-label">Non</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-check mb-3 d-flex align-items-center">
+              <label class="me-3">Ont un produit ?</label>
+              <div class="d-flex">
+                <div class="radio">
+                  <input
+                    id="hasProductYes"
+                    type="radio"
+                    [(ngModel)]="newCompany.hasProduct"
+                    [value]="true"
+                    name="hasProduct"
+                    class="form-check-input"
+                  />
+                  <label for="hasProductYes" class="form-check-label">Oui</label>
+                </div>
+                <div class="radio">
+                  <input
+                    id="hasProductNo"
+                    type="radio"
+                    [(ngModel)]="newCompany.hasProduct"
+                    [value]="false"
+                    name="hasProduct"
+                    class="form-check-input"
+                  />
+                  <label for="hasProductNo" class="form-check-label">Non</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-check mb-3 d-flex align-items-center">
+              <label class="me-3">Ont leur propre installation ?</label>
+              <div class="d-flex">
+                <div class="radio">
+                  <input
+                    id="ownsInstalationYes"
+                    type="radio"
+                    [(ngModel)]="newCompany.ownsInstalation"
+                    [value]="true"
+                    name="ownsInstalation"
+                    class="form-check-input"
+                  />
+                  <label for="ownsInstalationYes" class="form-check-label">Oui</label>
+                </div>
+                <div class="radio">
+                  <input
+                    id="ownsInstalationNo"
+                    type="radio"
+                    [(ngModel)]="newCompany.ownsInstalation"
+                    [value]="false"
+                    name="ownsInstalation"
+                    class="form-check-input"
+                  />
+                  <label for="ownsInstalationNo" class="form-check-label">Non</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn create">Créer</button>
+          </form>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,159 @@
+/* Amélioration du conteneur principal */
+.glossaire-list-container {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.glossaire-header {
+  width: 80%;
+  max-width: 1200px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.glossaire-title {
+  font-size: 60px;
+  color: #013238;
+  margin-bottom: 10px;
+}
+
+.glossaire-subtitle {
+  font-size: 24px;
+  color: #013238;
+  margin-bottom: 15px;
+}
+
+/* Champ de recherche */
+.glossaire-recherche {
+  margin-top: 15px;
+}
+
+.glossaire-search {
+  width: 80%;
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: 1px solid #013238;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.glossaire-search:focus {
+  border-color: #b5cdbf;
+  box-shadow: 0 0 12px #b5cdbf;
+  outline: none;
+}
+
+/* Liste de glossaires */
+.glossaire-list {
+  width: 80%;
+  max-width: 1200px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.glossaire {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glossaire:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Titre du terme */
+.glossaire-word h4 {
+  font-size: 22px;
+  color: #013238;
+}
+
+.glossaire-button:active {
+  background-color: #c5fddf;
+}
+
+/* Définitions */
+.glossaire-div-definition p {
+  margin: 10px 0;
+  margin-left: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #013238;
+}
+
+/* Remarques */
+.glossaire-remarque h5 {
+  font-size: 16px;
+  margin-left: 15px;
+  color: #013238;
+}
+
+.glossaire-remarque p {
+  margin-left: 15px;
+  font-size: 16px;
+  color: #013238;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Bouton */
+.glossaire-div-info {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+.glossaire-button {
+  background-color: #013238;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: right  ;
+}
+
+.glossaire-button:hover {
+  background-color: #c5fddf;
+  color: #013238;
+  box-shadow: 0 4px 12px rgba(0, 111, 131, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glossaire-header, .glossaire-list {
+    width: 95%;
+  }
+
+  .glossaire-title {
+    font-size: 48px;
+  }
+
+  .glossaire-subtitle {
+    font-size: 20px;
+  }
+
+  .glossaire-search {
+    width: 100%;
+  }
+}

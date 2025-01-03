@@ -1,0 +1,171 @@
+.home-box {
+  font-family: Arial, sans-serif;
+}
+
+.text-container {
+  margin-left: 600px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.home-container{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.content {
+  color: white;
+}
+
+.row {
+  max-width: 100%;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: left;
+}
+
+.content h2 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.image-container {
+  width: 50%;
+  
+}
+
+.certificat-image {
+  width: 85%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.first-container, .third-container {
+  background-color: white;
+  padding-top: 60px; /* Ajout d'espace au-dessus du contenu */
+  padding-bottom: 60px;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.second-container{
+  background-color: #013238;
+  padding-top: 60px; 
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.first-container.visible, .second-container.visible, .third-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button.commencer-btn {
+  margin-top: 20px; 
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.second-container h2{
+  color: white;
+  margin-left: 20px;
+}
+
+.second-container p{
+  color: #b5cdbf;
+}
+
+.list-container {
+  max-width: 700px;
+  
+}
+
+.list-container li {
+  display: flex;
+	align-items: center;
+	gap: 1rem;
+  padding: 1.5rem;
+  
+}
+
+.list-container li::before {
+  counter-increment: list-item;
+  content: counter(list-item);
+  font-size: 3rem;
+  font-weight: 700;
+  width: 4rem;
+  height: 4rem; 
+  background: black;
+  flex: 0 0 auto;
+  color: white;
+  border-radius: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pour les éléments pairs : inverse la direction */
+.list-container li:nth-child(even) {
+  flex-direction: row-reverse; /* Inverse le numéro et le contenu */
+}
+
+.highlighted-text {
+  color: white;
+  font-size: 1.2em; 
+  font-weight: bold;
+  padding: 1rem;
+  display: inline-block;
+}
+
+.dual-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+}
+
+.column {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+  border-radius: none;
+}
+
+.column:first-child {
+  border-right: 20px solid #ccc; /* Ligne de séparation */
+  margin-right: 0px; /* Ajoute un espace entre la ligne et la deuxième colonne */
+}
+
+.column h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.column p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+/* Cacher l'image sur les petits écrans */
+@media (max-width: 767px) {
+  .image-container {
+    display: none;
+  }
+}

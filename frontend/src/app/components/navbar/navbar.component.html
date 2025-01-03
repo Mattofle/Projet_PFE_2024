@@ -1,0 +1,30 @@
+<nav class="navbar" [class.visible]="isNavbarVisible" [class.scrolled]="isScrolled">
+    <a routerLink="/" class="navbar-img">
+      <img src="assets/logo_shiftingpact_verteau_blanc.png" width="140" height="auto" alt="Logo ShiftingPact">
+    </a>
+
+    <ul class="navbar-links">
+      <li><a routerLink="/">Accueil</a></li>
+
+      <ng-container *ngIf="isLoggedIn && isAdmin">
+        <li><a routerLink="/account-management">Gestion compte</a></li>
+        <li><a routerLink="/companies">Entreprises</a></li>
+        <li><a routerLink="/glossaire">Glossaire</a></li>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn && !isAdmin">
+        <li><a routerLink="/forms">Formulaires</a></li>
+        <li><a routerLink="/rapport">Rapport</a></li>
+        <li><a routerLink="/glossaire">Glossaire</a></li>
+        <li><a routerLink="/profile">Profil</a></li>
+      </ng-container>
+
+      <ng-container *ngIf="!isLoggedIn">
+        <li><a routerLink="/login">Se connecter</a></li>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <li><a (click)="logout()">Se déconnecter</a></li>
+      </ng-container>
+    </ul>
+  </nav>

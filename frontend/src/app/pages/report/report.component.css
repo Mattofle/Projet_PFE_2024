@@ -1,0 +1,189 @@
+/* Style global de la page */
+.report-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  margin-bottom: 50px;
+  
+}
+
+.report-title {
+  font-size: 48px;
+  text-align: center;
+  color: #013238;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.score-info {
+  font-size: 24px;
+  text-align: center;
+  color: #013238;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.report-buttons {
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  margin-bottom: 25px;
+  gap: 10px;  /* Espacement entre les boutons */
+}
+
+.report-toggle-button {
+  background-color: #013238;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  border: solid #013238;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.report-toggle-button:hover {
+  background-color: #b5cdbf;
+  color: #013238;
+}
+
+
+.report-module {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.module-title {
+  font-size: 32px;
+  color: #013238;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.submodule-container {
+  margin-top: 20px;
+}
+
+.submodule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #013238;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.submodule-item {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.submodule-item:hover {
+  background-color: #f1f1f1;
+}
+
+.submodule-name {
+  padding: 12px;
+  font-size: 16px;
+  color: #013238;
+}
+
+.submodule-score {
+  padding: 12px;
+  font-size: 16px;
+  color: #013238;
+  text-align: center;
+}
+
+.submodule-score strong {
+  color: #013238;
+}
+
+
+.table-main-header{
+  text-align:start;
+  background-color: #013238;
+  color: white;
+  padding-left: 12px;
+}
+
+.submodule-table th{
+  background-color: #b5cdbf;
+  color: #013238;
+  min-width: fit-content;
+ /* Divise la largeur des colonnes de manière égale */
+}
+.submodule-table td {
+  width: 15%; /* Divise la largeur des colonnes de manière égale */
+}
+
+.table-secondary-header{
+  background-color: #013238;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+}
+
+
+.submodule-item td {
+  padding: 12px;
+  font-size: 16px;
+}
+
+.submodule-item:hover {
+  background-color: #fafafa;
+}
+
+.report-toggle-button.active-button {
+  background-color: #b5cdbf; /* Active background color */
+  color: #013238; /* Active text color */
+  border-color: #000000; /* Active border color */
+  font-weight: bold;
+  border: solid #013238;
+}
+
+
+.score-highlight {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #000000; /* Default text color for better contrast */
+}
+
+.score-yellow {
+  background-color: orange;
+  color: black; /* Text color to contrast yellow */
+}
+
+.score-orange {
+  background-color: yellow;
+  color: #000000;
+}
+
+.score-green {
+  background-color: green;
+  color: black;
+}

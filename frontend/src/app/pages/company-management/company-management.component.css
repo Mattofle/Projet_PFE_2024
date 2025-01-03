@@ -1,0 +1,92 @@
+/* Container */
+.company-list-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #013238;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header */
+.company-table th {
+  background-color: #013238;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Table Body */
+.company-table td {
+  padding: 12px;
+  border: 1px solid #b5cdbf;
+  text-align: center;
+  color: #013238;
+  font-size: 0.9rem;
+}
+
+/* Hover Effect for Body Rows Only */
+.company-table tbody tr {
+  cursor: pointer; /* Change mouse to pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.company-table tbody tr:hover {
+  background-color: #b5cdbf;
+  color: #013238;
+  transform: scale(1.01); /* Subtle scaling effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .company-list-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .company-table th, 
+  .company-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .company-table th, 
+  .company-table td {
+    font-size: 0.8rem;
+  }
+}

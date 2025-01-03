@@ -1,0 +1,140 @@
+<div class="report-container">
+  <h1 class="report-title"><strong>Rapport</strong></h1>
+  <h2 class="score-info" [ngClass]="{
+    'score-yellow': finalScore < 50,
+    'score-orange': finalScore >= 50 && finalScore <= 70,
+    'score-green': finalScore > 70
+  }">
+    Vous avez un score de :
+    <span
+      
+      class="score-highlight"
+    >
+      {{ finalScore }}%
+    </span>
+  </h2>
+  
+  
+
+
+  <div class="report-buttons">
+    <div *ngIf="reportESG !== undefined">
+      <button
+        (click)="toggleReportESG()"
+        class="report-toggle-button"
+        [ngClass]="{ 'active-button': showReportESG }"
+      >
+        Rapport ESG
+      </button>
+    </div>
+    <div *ngIf="reportODD !== undefined">
+      <button
+        (click)="toggleReportODD()"
+        class="report-toggle-button"
+        [ngClass]="{ 'active-button': showReportODD }"
+      >
+        Rapport ODD
+      </button>
+    </div>
+  
+    <div *ngIf="reportESG !== undefined && reportODD !== undefined">
+      <button
+        (click)="generatePdf()"
+        class="report-toggle-button"
+      >
+        Générer en format PDF
+      </button>
+    </div>
+  </div>
+  
+  <div
+    *ngIf="
+      showReportODD &&
+      reportODD !== undefined &&
+      reportODD.subModules !== undefined
+    "
+    class="report-module"
+  >
+    <h2 class="module-title">
+      Module ODD: <strong>{{ reportODD.module.score }}%</strong>
+    </h2>
+
+    <div class="submodule-container">
+      <div class="submodule-table">
+        <table>
+          <thead>
+            <tr>
+              <th class="table-header"><h4>Module</h4></th>
+              <th class="table-secondary-header"><h4>Score</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let subModule of reportODD.subModules"
+              class="submodule-item"
+            >
+              <td class="submodule-name">{{ subModule.title }}</td>
+              <td class="submodule-score">
+                <strong>{{ subModule.module.score }}%</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="
+      showReportESG &&
+      reportESG !== undefined &&
+      reportESG.subModules !== undefined
+    "
+    class="report-module"
+  >
+    <h2 class="module-title">
+      Module ESG: <strong> {{ reportESG.module.score }} /90</strong>
+    </h2>
+
+    <div class="submodule-container">
+      <div class="submodule-table">
+        <table>
+          <thead>
+            <tr>
+              <th class="table-main-header"><h4>Module</h4></th>
+              <th class="table-secondary-header"><h4>Score</h4></th>
+              <th class="table-secondary-header"><h4>Score engagement</h4></th>
+              <th class="table-secondary-header"><h4>Score final</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let subModule of reportESG.subModules"
+              class="submodule-item"
+            >
+              <td class="submodule-name">{{ subModule.title }}</td>
+              <td class="submodule-score">
+                <strong>{{ subModule.module.score }} / 30</strong>
+              </td>
+              <td class="submodule-score">
+                <strong>{{ subModule.module.score_engagement }} / 30</strong>
+              </td>
+              <td class="submodule-score">
+                <strong
+                  >{{
+                    subModule.module.score + subModule.module.score_engagement
+                  }}
+                  / 30</strong
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="reportESG !== undefined">
+      <app-commitments></app-commitments>
+    </div>
+  </div>
+</div>

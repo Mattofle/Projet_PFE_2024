@@ -1,0 +1,22 @@
+<div class="company-list-container">
+  <h1>Gestion des entreprises</h1>
+  <table class="company-table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Numéro de téléphone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let company of companies" 
+        (click)="viewCompany(company.company_id)"
+        class="clickable-row">
+        <td>{{ company.name }}</td>
+        <td>{{ company.address }}</td>
+        <td>{{ company.phoneNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

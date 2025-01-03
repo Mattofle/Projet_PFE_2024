@@ -1,0 +1,17 @@
+.footer-container {
+    color: white;
+    background-color: #013238;
+    max-height: fit-content;
+    text-align: center; /* Centre le texte horizontalement */
+    display: flex; /* Active le modèle Flexbox */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    padding: 20px; /* Ajoute un espace pour un meilleur rendu */
+    flex-direction: column; /* Assure une disposition verticale si plusieurs éléments sont présents */
+}
+
+.footer {
+    background-color: #013238;
+    padding: 10px 0;
+    text-align: center; /* Centre le texte horizontalement */
+}

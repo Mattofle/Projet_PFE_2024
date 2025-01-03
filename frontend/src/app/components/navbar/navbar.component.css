@@ -1,0 +1,79 @@
+/* Style de base pour la navbar */
+/* Base styles for the navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #013238;
+  color: white;
+  padding: 25px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: top 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hidden navbar when scrolled */
+.navbar.scrolled {
+  box-shadow: none;
+  top: -200px; /* Adjust for navbar height */
+}
+
+/* Visible navbar on hover */
+.navbar.visible {
+  top: 0;
+  opacity: 1;
+}
+
+/* Small visible hover zone */
+.navbar.scrolled:hover {
+  top: 0;
+  opacity: 1;
+}
+
+  
+  /* Style de la marque */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Liste des liens : alignement horizontal */
+  .navbar-links {
+    display: flex; /* Alignement horizontal */
+    list-style: none;
+    gap: 20px; /* Espacement entre les liens */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style des liens */
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: #013238; /* Couleur au survol */
+  }
+
+  .navbar-img {
+    transition: transform 0.1s ease-out; /* Smooth transition when not hovered */
+  }
+  
+  .navbar-img:hover {
+    transform: scale(1.1); /* Increases size by 10% */
+    background-color: #013238;
+    transition: transform 0.4s ease-in; /* Smooth transition when hovered */
+  }
+  
+  .navbar-links li a:hover {
+    cursor: pointer; /* Change le curseur en pointeur lorsqu'on survole */
+  }
+  
+  
+  
+  
+  

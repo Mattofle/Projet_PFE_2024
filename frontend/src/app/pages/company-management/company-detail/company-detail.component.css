@@ -1,0 +1,144 @@
+.company-detail-global-container {
+  min-height: 100vh;
+}
+
+.company-container {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 20px auto 25px;
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #013238;;
+  color: #013238;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.company-name {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.company-details {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #f0f5f4;
+  border-radius: 8px;
+}
+
+.company-details p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.company-details p strong {
+  color: #013238;
+  font-weight: 600;
+}
+
+/* Form Grid Container */
+.form-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between grid items */
+  margin-top: 20px;
+}
+
+/* Form Grid Item */
+.form-grid-item {
+  display: flex;
+  flex-direction: column; /* Stack button and status vertically */
+  align-items: center; /* Center align both items */
+  justify-content: center;
+  gap: 10px; /* Space between button and status */
+}
+
+/* Form Button Styling */
+.form-button-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 70px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #013238;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; /* Remove margin-bottom for the last button */
+}
+
+.form-button-info:hover {
+  transform: scale(1.05);
+  color: #013238;
+  background-color: #c5fddf;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-button-info:active {
+  transform: scale(0.98);
+}
+
+.form-button-info:disabled {
+  background-color: #f0f0f0; /* Light gray background */
+  color: #a9a9a9; /* Dimmed text color */
+  cursor: not-allowed; /* Show 'not-allowed' cursor */
+  box-shadow: none; /* Remove shadow for disabled button */
+  transform: none; /* Disable hover/active transformations */
+  opacity: 0.6; /* Slightly transparent */
+}
+
+/* Status Label Styling */
+.status-label {
+  font-size: 1rem; /* Maintain the reduced font size */
+  font-weight: bold;
+  color: #013238;
+  text-align: center;
+  padding: 7px 10px; /* Adjust padding for the smaller width */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 220px; /* Make it 50% of its original width */
+  margin: 0 auto; /* Center-align within the parent container */
+}
+
+.status-label.completed, .status-label.validated {
+  background-color: #c5fddf; /* Green for completed */
+}
+
+.status-label.completing {
+  background-color: #fde791;
+}
+
+.status-label.sent {
+  color: #ffffff; /* Red for error */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .form-grid-container {
+    grid-template-columns: 1fr; /* Stack buttons and statuses on smaller screens */
+    gap: 15px;
+  }
+
+  .form-button-info {
+    width: 200px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .status-label {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

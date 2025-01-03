@@ -1,0 +1,283 @@
+GET http://localhost:8080/api/data
+
+### Requête d'authentification
+POST http://localhost:8080/api/authentication/login
+Content-Type: application/json
+
+{
+  "login": "miaou@gmail.com",
+  "password": "123"
+}
+
+> {%
+  client.global.set("tokenAdmin", response.body);
+%}
+
+### connection entreprise
+POST http://localhost:8080/api/authentication/login
+Content-Type: application/json
+
+{
+  "login": "company_0000@gmail.com",
+  "password": "azerty123"
+}
+> {%
+  client.global.set("token", response.body);
+%}
+
+###add answerCompany
+POST http://localhost:8080/api/answerCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "questionId": 79,
+  "answerId": 8
+}
+
+
+###add answerCompany
+POST http://localhost:8080/api/answerCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+
+  "questionId": 80,
+  "openAnswer": "miaou²"
+}
+
+###add answerCompany
+POST http://localhost:8080/api/answerCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+
+  "questionId": 166,
+  "answerId": 464,
+  "isEngamement": true
+}
+
+
+
+###add answerCompany
+POST http://localhost:8080/api/answerCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+
+  "questionId": 166,
+  "answerId": 465,
+  "isEngamement": false
+}
+
+###add answerCompany
+POST http://localhost:8080/api/answerCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+
+  "questionId": 85,
+  "answerId": 28
+
+}
+
+###update engagement
+PATCH http://localhost:8080/api/answerCompany/engagement
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "questionId": 85,
+  "answerId": 28,
+  "isEngamement": true
+}
+
+
+### Requête d'authentification
+POST http://localhost:8080/api/authentication/login
+Content-Type: application/json
+
+{
+  "login": "miaou@gmail.com",
+  "password": "azerty123"
+}
+
+### Création d'un utilisateur avec un utilisateur
+POST http://localhost:8080/api/authentication/register/admin
+Content-Type: application/json
+Authorization: {{tokenAdmin}}
+
+{
+  "login": "adminnnnnaaan@gmail.com",
+  "password": "azerty123",
+  "is_admin": true
+}
+
+### Supprimer un user
+DELETE http://localhost:8080/api/users/18
+Authorization: {{tokenAdmin}}
+
+
+### creation d'un entreprise
+POST http://localhost:8080/api/authentication/register/company
+Content-Type: application/json
+Authorization: {{tokenAdmin}}
+
+{
+  "name": "entreprise",
+  "address": "ruedelentreprise",
+  "phoneNumber": "0606060606",
+  "login": "entreprise@gmail.com",
+  "password": "azerty123",
+  "hasInstalation": true,
+  "ownsInstalation": false,
+  "workers": 0,
+  "hasProduct": true,
+  "ownsInstalation": true
+}
+
+### connection entreprise
+POST http://localhost:8080/api/authentication/login
+Content-Type: application/json
+
+{
+  "login": "entreprise@gmail.com",
+  "password": "azerty123"
+}
+> {%
+  client.global.set("token", response.body);
+%}
+
+###GET company
+GET http://localhost:8080/api/companies/19
+Authorization: {{token}}
+
+
+###Update company
+PATCH http://localhost:8080/api/companies/1
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "phoneNumber": "08080808"
+}
+
+###GET all glossaire
+GET http://localhost:8080/api/glossaires
+Authorization: {{token}}
+
+###GET modules de esg
+GET http://localhost:8080/api/moduleAllInfos/ESG/1
+Authorization: {{token}}
+
+
+###GET modules de odd
+GET http://localhost:8080/api/moduleAllInfos/ODD/1
+Authorization: {{token}}
+
+
+### GET ALL questions
+GET http://localhost:8080/api/questions
+Authorization: {{token}}
+
+
+###GET answers by question id
+GET http://localhost:8080/api/questions/1/answers
+Authorization: {{token}}
+
+
+###GET answers ODD by question id
+GET http://localhost:8080/api/questions/1/answersODD
+Authorization: {{token}}
+
+###GET all users
+GET http://localhost:8080/api/users
+Authorization: {{tokenAdmin}}
+
+###GET a user
+GET http://localhost:8080/api/users/token
+Authorization: {{token}}
+
+###GET all admins
+GET http://localhost:8080/api/users/admin
+Authorization: {{tokenAdmin}}
+
+
+###GET user 1
+GET http://localhost:8080/api/users/9
+Authorization: {{token}}
+
+###Update password
+PUT http://localhost:8080/api/users/modifyPassword
+Content-Type: application/json
+Authorization: {{tokenAdmin}}
+
+{
+  "newPassword": "123",
+  "oldPassword": "azerty123"
+}
+
+###GET odd score by company
+GET http://localhost:8080/api/companies/1/scoreodd
+Authorization: {{token}}
+
+###GET modules odd by company
+GET http://localhost:8080/api/moduleCompanyWithSubmodules/ODD/company/1
+Authorization: {{token}}
+
+
+###GET esg score by company
+GET http://localhost:8080/api/companies/9/scoreesg
+Authorization: {{token}}
+
+###GET modules odd by company
+GET http://localhost:8080/api/moduleCompanyWithSubmodules/ESG/company/1
+
+
+
+###get engagement
+GET http://localhost:8080/api/companies/1/answer/engagement
+Authorization: {{token}}
+
+
+###add comment to answerCompany
+POST http://localhost:8080/api/commentCompany
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "comment": "miaou",
+  "question": 166
+
+}
+
+###add dates
+POST http://localhost:8080/api/companyModule/ODD/dates
+Authorization: {{token}}
+
+###delete company
+DELETE http://localhost:8080/api/companies/1
+Authorization: {{tokenAdmin}}
+
+###delete company
+DELETE http://localhost:8080/api/companies/1
+Authorization: {{tokenAdmin}}
+
+###validate module
+PUT http://localhost:8080/api/moduleCompany/1/validate/1
+Authorization: {{tokenAdmin}}
+
+###delete answerCompany
+DELETE http://localhost:8080/api/answerCompany/companies/1
+Content-Type: application/json
+Authorization: {{tokenAdmin}}
+
+{
+  "questionId": 5,
+  "answerId": 4
+}
+

@@ -1,0 +1,44 @@
+<!-- Render module title and level -->
+<div *ngIf="parentIndex !== undefined">
+  <div [ngClass]="getContainerClass()" class="module-title-container">
+    <h2 [ngClass]="getTitleClass()" class="module-title">
+      {{ module.modulePath }}: {{ module.moduleTitle }}
+    </h2>
+  </div>
+</div>
+
+<!-- Render child modules recursively -->
+<div *ngIf="!isLeafModule()">
+  <div *ngFor="let child of getChildModules(); let childIndex = index">
+    <app-recursive-module-esg
+      [module]="child"
+      [parentIndex]="parentIndex"
+      [childIndex]="childIndex"
+      [companyId]="companyId"
+      (answerSelected)="handleAnswerSelection($event)"
+    >
+    </app-recursive-module-esg>
+  </div>
+</div>
+
+<!-- Render questions if module is a leaf -->
+<div *ngIf="isLeafModule()">
+  <div
+    *ngFor="let question of module.questions; let questionIndex = index"
+    class="question-container"
+  >
+    <app-question-esg
+      [question]="question.question"
+      [answers]="question.answers"
+      [type]="question.type"
+      [moduleIndex]="parentIndex"
+      [userAnswer]="question.userAnswer"
+      [questionComment]="question.comment"
+      [questionNumber]="questionIndex + 1"
+      [questionId]="question.questionId"
+      (answerSelected)="handleAnswerSelection($event)"
+      [companyId]="companyId"
+    >
+    </app-question-esg>
+  </div>
+</div>

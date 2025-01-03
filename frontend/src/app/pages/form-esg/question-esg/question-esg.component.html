@@ -1,0 +1,92 @@
+<div class="question-container">
+  <!-- Question Title -->
+  <h2 class="question-title">Question {{ questionNumber }}: {{ question }}</h2>
+
+  <!-- Options for 'ONE' or 'MULTIPLE' question types -->
+  <div *ngIf="type === 'ONE' || type === 'MULTIPLE'" class="answers-list-container">
+    <!-- Texte pour MULTIPLE -->
+    <div *ngIf="type === 'MULTIPLE'" class="instruction-text">
+      <p style="color: #ff4500; font-weight: bold;">Choisissez une ou plusieurs réponses</p>
+    </div>
+
+    <table class="answers-table">
+      <tr *ngFor="let answer of answers">
+        <td
+          class="answer-text"
+          [class.selected]="isAnswerSelected(answer)"
+          (click)="selectAnswer(answer, questionId)"
+        >
+          {{ answer.text }}
+          <div class="input-container">
+            <!-- Checkbox hidden for MULTIPLE -->
+            <input
+              *ngIf="type === 'MULTIPLE'"
+              type="checkbox"
+              [checked]="isAnswerSelected(answer)"
+              class="answer-checkbox"
+              style="display: none;"
+            />
+
+            <!-- Radio hidden for ONE -->
+            <input
+              *ngIf="type === 'ONE'"
+              type="radio"
+              [checked]="isAnswerSelected(answer)"
+              name="single-answer-{{ questionNumber }}"
+              class="answer-radio"
+              style="display: none;"
+            />
+          </div>
+        </td>
+        <td class="answer-button-cell">
+          <button
+            class="answer-button"
+            (click)="toggleCommitment(answer.answer_id, answer.isEngagement)"
+          >
+            {{ answer.isEngagement ? '❌' : "S'engager" }}
+          </button>
+        </td>
+      </tr>
+    </table>
+
+
+
+  </div>
+
+  <!-- Textarea for 'OPEN' question type -->
+  <div *ngIf="type === 'OPEN'" class="open-answer-container">
+    <textarea
+      [(ngModel)]="openAnswer"
+      [placeholder]="'Type your answer here...'"
+      class="open-answer-textarea"
+      (blur)="emitOpenAnswer()"
+      aria-label="Type your answer here">{{ openAnswer }}</textarea>
+  </div>
+
+  <!-- Comment Section -->
+  <div class="comment-section">
+    <div *ngIf="!isAddingComment">
+      <!-- Show 'Add a comment' button if no comment exists -->
+      <button *ngIf="!questionComment" (click)="startAddingComment()">+ Ajouter un commentaire</button>
+
+      <!-- Show existing comment with a pencil icon -->
+      <div *ngIf="questionComment" class="existing-comment-container">
+        <p class="existing-comment">{{ questionComment }}</p>
+        <button class="edit-comment-button" (click)="startAddingComment()">
+          ✏️ <!-- Pencil Icon -->
+        </button>
+      </div>
+    </div>
+
+    <!-- Comment editing container -->
+    <div *ngIf="isAddingComment" class="add-comment-container">
+      <textarea
+        [(ngModel)]="newComment"
+        [placeholder]="'Ajoutez votre commentaire ici...'"
+        class="comment-textarea">
+      </textarea>
+      <button (click)="saveComment(companyId)">Sauvegarder</button>
+      <button (click)="cancelComment()">Annuler</button>
+    </div>
+  </div>
+</div>

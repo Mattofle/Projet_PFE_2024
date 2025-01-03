@@ -1,0 +1,89 @@
+/* Styling for module title */
+
+.module-title {
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center-align the title */
+}
+
+/* Styling for module title container (separate for each level) */
+.container-lvl1 {
+  margin: auto;
+  max-width: 70%; /* Larger container for lvl1 */
+  font-size: 2rem; /* Larger font size for lvl1 */
+  margin-bottom: 30px; /* Space below the container */
+  letter-spacing: 1px; /* Add space between the letters */
+  margin-top: 20px;
+  border-bottom: 1px solid black; /* Small black border at the bottom */
+  
+}
+
+.container-lvl2 {
+  letter-spacing: 1px; /* Add space between the letters */
+  margin-top: 25px;
+  margin: auto;
+  max-width: 60%; /* Smaller container for lvl2 */
+  font-size: 1.3rem; /* Slightly smaller font size for lvl2 */
+  padding: 15px;
+  /* Small black border at the top */
+}
+
+.container-lvl3 {
+  letter-spacing: 1px; /* Add space between the letters */
+  margin: auto;
+  max-width: 60%; /* Smaller container for lvl3 */
+  font-size: 1.1rem; /* Smaller font size for lvl3 */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-top: 1px solid black; /* Small black border at the top */
+}
+
+.container-lvl4 {
+  letter-spacing: 1px; /* Add space between the letters */
+  margin: auto;
+  max-width: 40%; /* Smaller container for lvl4 */
+  font-size: 1rem; /* Smaller font size for lvl4 */
+  margin-bottom: 15px;
+  padding: 8px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid black; /* Small black border at the top */
+  border-bottom: 2px solid black; /* Small black border at the bottom */
+}
+
+.container-lvl5 {
+  letter-spacing: 1px; /* Add space between the letters */
+  margin: auto;
+  max-width: 25%; /* Smallest container for lvl5 */
+  font-size: 0.9rem; /* Smallest font size for lvl5 */
+  margin-bottom: 10px;
+  padding: 6px;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid black; /* Small black border at the top */
+  border-bottom: 2px solid black; /* Small black border at the bottom */
+}
+
+/* Styling for titles inside each container (different for each level) */
+.title-lvl1 {
+  font-size: 1.5rem; /* Larger font size for lvl1 titles */
+  color: white; /* Dark color for lvl1 titles */
+}
+
+.title-lvl2 {
+  font-size: 1.8rem; /* Slightly smaller font size for lvl2 titles */
+  color: white; /* Slightly lighter color for lvl2 titles */
+}
+
+.title-lvl3 {
+  font-size: 1.5rem; /* Even smaller font size for lvl3 titles */
+  color: white; /* Lighter color for lvl3 titles */
+  padding-top: 10px;
+}
+
+.title-lvl4 {
+  font-size: 1rem; /* Smaller font size for lvl4 titles */
+  color: white; /* Even lighter color for lvl4 titles */
+}
+
+.title-lvl5 {
+  font-size: 0.9rem; /* Smallest font size for lvl5 titles */
+  color: white; /* Very light color for lvl5 titles */
+}

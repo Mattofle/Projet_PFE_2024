@@ -1,0 +1,88 @@
+
+.login-box{
+  min-height: 80vh;
+}
+
+
+  /* Remove or reduce box-shadow if unwanted */
+.login-container {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: none; /* or reduce it */
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 7%;
+  }
+  
+  
+  /* Form header */
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Input fields */
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Button styles */
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background: #013238;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn:hover {
+    background: #b5cdbf;
+  }
+  
+  /* Signup link */
+  .signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .signup-link a {
+    color: #4e54c8;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+    /* login.component.css */
+    .error {
+      border: 1px solid black;
+      background-color: #ffcccc;
+      border-radius: 5px;
+      padding: 10px;
+      color: black;
+    }

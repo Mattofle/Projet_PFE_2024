@@ -1,0 +1,48 @@
+<div class="question-container">
+  <!-- Question Title -->
+  <h2 class="question-title">Question {{ questionNumber }}: {{ question }}</h2>
+
+  <!-- Options for 'ONE' or 'MULTIPLE' question types -->
+  <div *ngIf="type === 'ONE' || type === 'MULTIPLE'" class="answers-list-container">
+    <!-- Texte pour MULTIPLE -->
+    <div *ngIf="type === 'MULTIPLE'" class="instruction-text">
+      <p style="color: #ff4500; font-weight: bold;">Choisissez une ou plusieurs réponses</p>
+    </div>
+  
+    <ul class="answers-list">
+      <li
+        *ngFor="let answer of answers"
+        class="answer-item"
+        [class.selected]="isAnswerSelected(answer)"
+        (click)="selectAnswer(answer, questionId)">
+        <span class="answer-text">{{ answer.text }}</span>
+        <!-- Checkbox cachée pour MULTIPLE -->
+        <input
+          *ngIf="type === 'MULTIPLE'"
+          type="checkbox"
+          [checked]="isAnswerSelected(answer)"
+          class="answer-checkbox"
+          style="display: none;" />
+  
+        <!-- Radio caché pour ONE -->
+        <input
+          *ngIf="type === 'ONE'"
+          type="radio"
+          [checked]="isAnswerSelected(answer)"
+          name="single-answer-{{ questionNumber }}"
+          class="answer-radio"
+          style="display: none;" />
+      </li>
+    </ul>
+  </div>
+
+  <!-- Textarea for 'OPEN' question type -->
+  <div *ngIf="type === 'OPEN'" class="open-answer-container">
+    <textarea 
+      [(ngModel)]="openAnswer" 
+      [placeholder]="'Type your answer here...'" 
+      class="open-answer-textarea"
+      (blur)="emitOpenAnswer()"
+      aria-label="Type your answer here">{{ openAnswer }}</textarea>
+  </div>
+</div>

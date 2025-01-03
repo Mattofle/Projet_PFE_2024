@@ -1,0 +1,152 @@
+/* Container for the question and answers */
+
+.question-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 80%; /* Maximum width for the container */
+  width: 100%; /* Full width up to the max width */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling the question */
+.question-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding-bottom: 10px;
+  border-bottom: 2px solid  #b5cdbf; /* Adding a blue border below the title */
+}
+
+/* Styling for the answer list */
+.question-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Styling for each answer */
+.question-container li.answer-item {
+  font-size: 1rem;
+  background-color: #f1f1f1;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.question-container li.answer-item:hover {
+  background-color: #92cab1;
+}
+
+
+.question-container li.answer-item.selected {
+  background-color: #92cab1;
+  animation: pulse 300ms 1; /* Apply the pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Initial state, no scaling */
+  }
+  50% {
+    transform: scale(1.03); /* Mid-point, slightly larger */
+  }
+  100% {
+    transform: scale(1); /* End state, back to original size */
+  }
+}
+
+
+/* Container for open-answer textarea */
+.open-answer {
+  margin-top: 20px;
+}
+
+.open-answer-textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.add-comment-container {
+  margin-top: 10px;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.existing-comment {
+  color: #555;
+  font-style: italic;
+}
+
+
+.comment-section {
+  margin-top: 10px;
+  
+}
+
+.existing-comment-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between text and pencil icon */
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.existing-comment {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-comment-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+
+.comment-section button {
+  margin: 0 5px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-section button:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section button:active {
+  background-color: #d0d0d0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+

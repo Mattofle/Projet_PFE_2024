@@ -1,0 +1,42 @@
+<h1 class="select-form-title">Vos formulaires</h1>
+<div class="form-container">
+  <!-- Form Selector -->
+  <div class="form-toggle-buttons">
+    <!-- ODD Form Button -->
+    <a 
+      *ngIf="oddStatus !== 'Completed'" 
+      routerLink="/odd" 
+      class="form-button-common"
+    >
+      Formulaire ODD
+      <a class="odd-button-image"><img src="assets/oddChart2.png"></a>
+    </a>
+    <div 
+      *ngIf="oddStatus === 'Completed'" 
+      class="form-button-common form-button-disabled"
+    >
+      Formulaire ODD
+      <a class="odd-button-image"><img src="assets/oddChart2.png"></a>
+    </div>
+
+    <!-- ESG Form Button -->
+    <a 
+      *ngIf="esgStatus !== 'Completed'" 
+      routerLink="/esg" 
+      class="form-button-common"
+    >
+      Formulaire ESG
+      <a class="esg-button-image"><img src="assets/esgLogo.png"></a>
+    </a>
+    <div 
+      *ngIf="esgStatus === 'Completed'" 
+      class="form-button-common form-button-disabled"
+    >
+      Formulaire ESG
+      <a class="esg-button-image"><img src="assets/esgLogo.png"></a>
+    </div>
+  </div>
+
+  <!-- Router outlet to render the selected form -->
+  <router-outlet></router-outlet>
+</div>

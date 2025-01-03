@@ -1,0 +1,62 @@
+<div *ngIf="company; else loading">
+  <div class="company-detail-global-container">
+  <div class="company-container">
+    <h1 class="company-name">Informations de {{ company.name }}</h1>
+    <div class="company-details">
+      <p><strong>Adresse:</strong> {{ company.address }}</p>
+      <p><strong>Numéro de téléphone:</strong> {{ company.phoneNumber }}</p>
+      <p *ngIf="company.hasInstalation === true">
+        <strong>Est proprietaire:</strong> {{ company.ownsInstalation ? 'oui' : 'Non' }}
+      </p>
+      <p *ngIf="company.hasInstalation === false">
+        <strong>Est propriétaire:</strong> N'a aucune installation
+      </p>
+      <p><strong>Type de produits:</strong> {{ company.hasProduct ? 'Bien' : 'Service' }}</p>
+      <p><strong>Nombre d'employés:</strong> {{ company.workers }}</p>
+    </div>
+
+    <div class="form-grid-container">
+      <div class="form-grid-item">
+        <div *ngIf="oddModuleStatus === 'Complété'">
+          <button class="form-button-info" [routerLink]="['/odd', company.company_id]">Formulaire ODD</button>
+          <div class="status-label completed">{{ oddModuleStatus }}</div>
+        </div>
+        <div *ngIf="oddModuleStatus === 'Validé'">
+          <button disabled class="form-button-info" [routerLink]="['/odd', company.company_id]">Formulaire ODD</button>
+          <div class="status-label validated">{{ oddModuleStatus }}</div>
+        </div>
+        <div *ngIf="oddModuleStatus === 'Remis'">
+          <button disabled class="form-button-info" [routerLink]="['/odd', company.company_id]">Formulaire ODD</button>
+          <div class="status-label sent">{{ oddModuleStatus }}</div>
+        </div>
+        <div *ngIf="oddModuleStatus === 'En cours'">
+          <button disabled class="form-button-info" [routerLink]="['/odd', company.company_id]">Formulaire ODD</button>
+          <div class="status-label completing">{{ oddModuleStatus }}</div>
+        </div>
+      </div>
+      <div class="form-grid-item">
+        <div *ngIf="esgModuleStatus === 'Complété'">
+          <button class="form-button-info" [routerLink]="['/esg', company.company_id]">Formulaire ESG</button>
+          <div class="status-label completed">{{ esgModuleStatus }}</div>
+        </div>
+        <div *ngIf="esgModuleStatus === 'Validé'">
+          <button disabled class="form-button-info" [routerLink]="['/esg', company.company_id]">Formulaire ESG</button>
+          <div class="status-label validated">{{ esgModuleStatus }}</div>
+        </div>
+        <div *ngIf="esgModuleStatus === 'Remis'">
+          <button disabled class="form-button-info" [routerLink]="['/esg', company.company_id]">Formulaire ESG</button>
+          <div class="status-label sent">{{ esgModuleStatus }}</div>
+        </div>
+        <div *ngIf="esgModuleStatus === 'En cours'">
+          <button disabled class="form-button-info" [routerLink]="['/esg', company.company_id]">Formulaire ESG</button>
+          <div class="status-label completing">{{ esgModuleStatus }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Chargement des informations de l'entreprise</p>
+</ng-template>

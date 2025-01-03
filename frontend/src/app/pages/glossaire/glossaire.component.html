@@ -1,0 +1,44 @@
+<div class="glossaire-list-container">
+  <div class="glossaire-header">
+    <h1 class="glossaire-title"><strong>Glossaire</strong></h1>
+    <div class="glossaire-recherche">
+      <h3 class="glossaire-subtitle"><strong>Recherche</strong></h3>
+      <input
+        type="text"
+        class="glossaire-search"
+        placeholder="Rechercher un terme"
+        [(ngModel)]="search"
+        (input)="onSearchChange()"
+      />
+    </div>
+  </div>
+
+  <div class="glossaire-list">
+    <div *ngFor="let glossaire of filteredGlossaires" class="glossaire">
+      <div class="glossaire-word">
+        <h4>
+          <strong>{{ glossaire.word }} :</strong>
+        </h4>
+      </div>
+
+      <div>
+        <div class="glossaire-div-definition">
+          <p>{{ glossaire.definition }}</p>
+        </div>
+
+        <div *ngIf="glossaire.comment !== null" class="glossaire-remarque">
+          <h5>Remarques :</h5>
+          <p>{{ glossaire.comment }}</p>
+        </div>
+      </div>
+
+      <div class="glossaire-div-info">
+        <div *ngIf="glossaire.info !== null">
+          <button (click)="redirectTo(glossaire.info)" class="glossaire-button">
+            En savoir plus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

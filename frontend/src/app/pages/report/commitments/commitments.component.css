@@ -1,0 +1,27 @@
+.commitments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.5); /* Blanc légèrement transparent */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.commitments-table th, .commitments-table td {
+    padding: 12px 15px;
+    border: 1px solid #b5cdbf; /* Bordure de couleur vert clair doux */
+}
+
+.commitments-table th {
+    background-color: #b5cdbf; /* Fond vert foncé */
+    color: #013238; /* Texte vert pastel vif */
+}
+
+.commitments-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fond gris clair pour les lignes paires */
+}
+
+.commitments-table tr:hover {
+    background-color: #b5cdbf; /* Fond vert clair doux au survol */
+}

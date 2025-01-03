@@ -1,0 +1,160 @@
+<div class="box-1">
+  <h1>Votre Profile </h1>
+</div>
+<ng-container *ngIf="company">
+  <div class="box-2">
+    <div class="container mt-10 ">
+      <div class="row">
+        <div class="col-sm-6 liste">
+          <div class="card shadow mb-4">
+            <div class="card-body text-center">
+              <img src="../../../assets/profil.png" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{company.name}}</h5>
+              <p class="text-muted mb-1">Entreprise</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn create" (click)="togglePasswordForm()">Modifier mot de passse </button>
+              </div>
+              <div class="d-flex justify-content-center mb-2">
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn delete-verification " data-bs-toggle="modal" data-bs-target="#alertModal">Supprimer le compte </button>
+              </div>
+              <!-- Modal Structure -->
+                <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="modal-body">
+                        Voulez-vous vraiment supprimer votre compte ? 
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" style="background-color: red;" data-bs-dismiss="modal">Annuler</button>
+                        <button type="button"  (click)="deleteAccount()" data-bs-dismiss="modal">Oui</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="card shadow mb-4" *ngIf="showPasswordForm">
+            <div class="card-body text-center">
+              <div class="d-flex justify-content-center ">
+                <form [formGroup]="passwordForm" (ngSubmit)="modifyPassword()" class="login-form">
+                  <label for="oldPassword" class="form-label">Ancien mot de passe : </label>
+                  <input type="password" id="oldPassword" formControlName="oldPassword" class="form-control">
+                  <label for="newPassword" class="form-label">Nouveau mot de passe : </label>
+                  <input type="password" id="newPassword" formControlName="newPassword" class="form-control"><br/>
+                  <label for="confirmNewPassword" class="form-label">Confirmer mot de passe : </label>
+                  <input type="password" id="confirmNewPassword" formControlName="confirmNewPassword" class="form-control"><br/>
+                  <button type="submit" class="btn create">Confirmer</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 formulaire">
+          <div class="card shadow p-4 form1">
+            <h2 class="card-title text-center">Mes informations</h2>
+            <table class="table info-table">
+            <tr>
+              <th>Nom</th>
+              <td>{{ company.name }}</td>
+            </tr>
+            <tr>
+              <th>Adresse</th>
+              <td>{{ company.address }}</td>
+            </tr>
+            <tr>
+              <th>Téléphone</th>
+              <td>{{ company.phoneNumber }}</td>
+            </tr>
+            <tr>
+              <th>Nombre d'employés</th>
+              <td>{{ company.workers }}</td>
+            </tr>
+            <tr>
+              <th>Possède Installations</th>
+              <td>{{ company.hasInstallation ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+              <th>Est propriétaire</th>
+              <td>{{ company.ownsInstallation ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+              <th>Fournit Produits</th>
+              <td>{{ company.hasProduct ? 'Oui' : 'Non' }}</td>
+            </tr>
+          </table>
+          </div>
+          <div class="card shadow p-4 form1">
+            <h2 class="card-title text-center">Modifier mes informations</h2>
+            <form [formGroup]="companyForm" (ngSubmit)="updateInfos()">
+              <div>
+                  <label for="name" class="form-label">Login:</label>
+                  <input type="text" id="name" formControlName="name" class="form-control" required>
+              </div>
+              <div>
+                  <label for="address">Addresse:</label>
+                  <input type="text" id="address" formControlName="address" class="form-control" required >
+              </div>
+              <div>
+                  <label for="phoneNumber">Numéro de téléphone:</label>
+                  <input type="text" id="phoneNumber" formControlName="phoneNumber" name="phoneNumber" class="form-control" required >
+              </div>
+              <div>
+                  <label for="hasInstallation">Ont une installation:</label>
+                  <div class="radio-group">
+                      <input type="radio" id="hasInstallationYes"
+                              formControlName="hasInstallation"
+                              [value] = "true">
+                      <label for="hasInstallationYes">Oui</label>
+                      <input type="radio" id="hasInstallationNo"
+                              formControlName="hasInstallation"
+                              [value]="false">
+                      <label for="hasInstallationNo">Non</label>
+                  </div>
+              </div>
+              <div *ngIf="companyForm.get('hasInstallation')?.value === true">
+                  <label for="ownsInstallation">Possèdent une installation:</label>
+                  <div class="radio-group">
+                      <input type="radio" id="ownsInstallationYes"
+                              formControlName="ownsInstallation"
+                              [value] = "true" >
+                      <label for="ownsInstallationYes">Oui</label>
+                      <input type="radio" id="ownsInstallationNo"
+                              formControlName="ownsInstallation"
+                              [value] = "false">
+                      <label for="ownsInstallationNo">Non</label>
+                  </div>
+              </div>
+              <div>
+                  <label for="hasProduct">Ont un produit:</label>
+                  <div class="radio-group">
+                      <input type="radio" id="hasProductYes"
+                              formControlName="hasProduct"
+                              [value] = "true">
+                      <label for="hasProductYes">Oui</label>
+                      <input type="radio" id="hasProductNo"
+                              formControlName="hasProduct"
+                              [value] = "false">
+                      <label for="hasProductNo">Non</label>
+                  </div>
+              </div>
+              <div>
+                  <label for="workers">Employés:</label>
+                  <input type="number"
+                          id="workers"
+                          formControlName="workers"
+                          min="0"
+                          class="form-control"
+                          required><br/>
+              </div>
+              <button type="submit">Mettre à jour</button>
+          </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

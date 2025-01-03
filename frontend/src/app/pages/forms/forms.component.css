@@ -1,0 +1,107 @@
+/* General Container Styling */
+.form-container {
+  display: flex;
+  justify-content: center;
+  color: #4a5568; /* Soft gray for better readability */
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+}
+
+/* Form Toggle Styling (Buttons arranged horizontally) */
+.form-toggle-buttons {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  flex-wrap: wrap; 
+  margin-top: 1%;
+  gap:100px 
+}
+
+/* Form Button Styling (Stack name and image vertically inside each button) */
+.form-button-common {
+  display: flex;
+  flex-direction: column; /* Stack name and image vertically */
+  justify-content: space-between; /* Add space between the title and the image */
+  align-items: center; /* Center content horizontally */
+  background-color: #ffffff;
+  padding: 10px;
+  width: 350px;
+  min-height: 380px; /* Ensure enough space for both title and image */
+  max-height: 380px; /* Limit height to prevent overflow */
+  color: #013238; /* Dark green text */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 10px;
+  overflow: hidden; /* Ensure content stays inside the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease;
+  border: 5px solid #013238; /* Dark green border */
+  border-radius: 20px; /* Rounded corners */
+}
+
+/* Disabled Form Button Styling */
+.form-button-disabled {
+  color: #a0aec0; /* Lighter text color */
+  cursor: not-allowed;
+  pointer-events: none; /* Prevent interaction */
+  opacity: 0.6; /* Slightly faded look */
+}
+
+/* Button Text Styling */
+.form-button-text {
+  text-align: center;
+  flex-shrink: 0; /* Prevent title from shrinking if the image is too big */
+}
+
+/* Image Styling for Buttons */
+.form-button-image {
+  height: auto; /* Maintain aspect ratio of the image */
+  transition: transform 0.3s ease;
+  border-radius: 200px; /* Rounded corners */
+}
+
+.esg-button-image img {
+  width: 85%;
+  margin-bottom: 10px; /* Space between the title and the image */
+  transition: transform 0.2s ease-out; /* Smooth ease-in-out transition */
+}
+
+.esg-button-image img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  transition: transform 0.3s ease-in-out; /* Smooth ease-in-out transition */
+}
+
+.odd-button-image img {
+  width: 190%;
+  margin-top: 30px; /* Space between the title and the image */
+  transition: transform 0.2s ease-out; /* Smooth ease-in-out transition */
+}
+
+.odd-button-image img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  transition: transform 0.3s ease-in-out; /* Smooth ease-in-out transition */
+}
+
+.form-button-common:hover {
+  transform: translateY(-5px); /* Lift the button slightly */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+.form-button-common:active {
+  background-color: #48bb78; /* Darker green for active state */
+  transform: translateY(0); /* Reset lift */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}
+
+/* Select Form Title Styling */
+.select-form-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15); /* Subtle glow effect */
+  text-align: center;
+  color: #ffffff;
+  margin-top: 50px;
+
+}

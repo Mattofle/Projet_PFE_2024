@@ -1,0 +1,81 @@
+<div class="esg-form">
+  <!-- Loader displayed when isLoading is true -->
+  <div *ngIf="isLoading">
+    <div class="loader"></div>
+    <h1 class="loader-text">Nous récupérons votre formulaire</h1>
+  </div>
+
+  <!-- Modules displayed when isLoading is false -->
+  <div *ngIf="!isLoading">
+    <div *ngIf="modulesDisplayer.length > 0" class="esg-container">
+      <!-- Sidebar Menu -->
+      <div class="sidebar-menu" [class.collapsed]="isSidebarCollapsed">
+        <div class="toggle-container">
+          <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
+        </div>
+        <ul>
+          <ng-container *ngFor="let module of modulesDisplayer; let i = index">
+            <!-- Render custom list item based on module path -->
+            <li *ngIf="module.modulePath === '1.1'" class="custom-text">
+              Environnementale
+            </li>
+            <li *ngIf="module.modulePath === '2.1'" class="custom-text">
+              Sociale
+            </li>
+            <li *ngIf="module.modulePath === '3.1'" class="custom-text">
+              Gouvernance
+            </li>
+
+            <!-- Render regular module path and title -->
+            <li
+              (click)="scrollToModule(module.moduleId)"
+              [class.active]="i === currentModuleIndex"
+              class="clickable"
+            >
+              {{ module.modulePath }} {{ module.moduleTitle }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+
+      <!-- Main Content - Recursive module displayed -->
+      <div class="main-content">
+        <app-recursive-module-esg
+          *ngIf="modulesDisplayer[currentModuleIndex]"
+          [module]="modulesDisplayer[currentModuleIndex]"
+          [parentIndex]="currentModuleIndex"
+          [companyId]="companyId"
+          (answerSelected)="handleAnswerSelection($event)"
+        >
+        </app-recursive-module-esg>
+
+        <!-- Navigation buttons -->
+        <div class="navigation-buttons">
+          <button 
+          *ngIf="currentModuleIndex !== 0"
+          (click)="showPreviousModule()">
+            Module précédent
+          </button>
+          <button 
+          *ngIf="isAdmin === false"
+          (click)="showNextModule()">
+            {{
+              currentModuleIndex === modulesDisplayer.length - 1
+                ? "Terminer formulaire ESG"
+                : "Module Suivant"
+            }}
+          </button>
+          <button 
+          *ngIf="isAdmin === true"
+          (click)="showNextModule()">
+          {{
+            currentModuleIndex === modulesDisplayer.length - 1
+              ? "Valider formulaire ESG"
+              : "Module Suivant"
+          }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
